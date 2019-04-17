@@ -3,3 +3,29 @@
   margin: 0;
   padding: 0px;
 }
+main {
+  padding: 0 30px;
+}
+h1 {
+  margin: 15px 0;
+}
+
+.visible {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#slider {
+  position: absolute;
+  list-style: none;
+}
+
+.slider__item {
+  float: left;
+  height: 200px;
+  width: 300px;
+  border: 1px solid black;
+}
