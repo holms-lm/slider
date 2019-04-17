@@ -21,6 +21,8 @@ h1 {
 #slider {
   position: absolute;
   list-style: none;
+  transition: 500ms;
+  left: 0px;
 }
 
 .slider__item {
