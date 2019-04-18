@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0px; }
+
+main {
+  padding: 0 30px; }
+
+h1 {
+  margin: 15px 0; }
+
+.visible {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 300px;
+  margin: 0 auto; }
+
+#slider, #sliderClick {
+  position: absolute;
+  list-style: none;
+  transition: 500ms;
+  left: 0px; }
+
+.slider__item {
+  float: left;
+  height: 200px;
+  width: 300px;
+  border: 1px solid black; }
