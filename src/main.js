@@ -1,64 +1,68 @@
 $(function () {
     var slider = {
-        var slideWidth = $('#slider').width();
+        // slideWidth : $('#slider').width(),
+        slideWidth : 300,
         // var contLi = $('.slider__item').length;
-        var quantityLi = $('#slider').children().length;
-        var sliderWidth = slideWidth * quantityLi + 'px';
-        var currentN = 0;
-        var currentNClick = 0;
-        var leftSlide;
+        // quantityLi : $('#slider').children().length,
+        quantityLi : 3,
+        // sliderWidth : slideWidth * quantityLi + 'px',
+        sliderWidth : '900 px',
+        currentN : 0,
+        currentNClick : 0,
+        leftSlide,
         //start();
 
-        function start() {
-            $('#slider').css('width', sliderWidth);
-            $('#sliderClick').css('width', sliderWidth);
-            console.log('start. count = ' + quantityLi);
+        start() {
+            $('#slider').css('width', slider.sliderWidth);
+            $('#sliderClick').css('width', slider.sliderWidth);
+            // console.log('start. count = ' + quantityLi);
             //console.log(50e6);
-        }
-
-        function next(n) {
-            leftSlide = -n * slideWidth + 'px'
-            $('#slider').css('left', leftSlide);
-        }
-
-        function nextClick(n) {
-            leftSlide = -n * slideWidth + 'px'
-            $('#sliderClick').css('left', leftSlide);
-        }
-
-        function countSlider() {
-            currentN += 1;
-            if (currentN > 4) {
-                currentN = 0;
-            }
-            next(currentN);
-
-        }
-
-        var timerId = setInterval(function () {
-            countSlider();
-        }, 2000);
-
-        $('#slider').hover(
-            function () {
-                clearInterval(timerId);
+            slider.timerId = setInterval(function () {
+                slider.countSlider();
             },
-            function () {
-                timerId = setInterval(function () {
-                    countSlider();
-                }, 2000);
-            }
-        )
+                2000);
+        },
 
-        $('#sliderClick').click(function () {
-            currentNClick = currentNClick + 1;
-            if (currentNClick > 4) {
-                currentNClick = 0;
+        next(n) {
+            leftSlide = -n * slider.slideWidth + 'px'
+            $('#slider').css('left', slider.leftSlide);
+        },
+
+        nextClick(n) {
+            slider.leftSlide = -n * slideWidth + 'px'
+            $('#sliderClick').css('left', slider.leftSlide);
+        },
+
+        countSlider() {
+            slider.currentN += 1;
+            if (slider.currentN > 4) {
+                slider.currentN = 0;
             }
-            nextClick(currentNClick);
-        });
+            slider.next(slider.currentN);
+
+        },
+
+
+
 };
+    // $('#slider').hover(
+    //     function () {
+    //         clearInterval(slider.timerId);
+    //     },
+    //     function () {
+    //         slider.timerId = setInterval(function () {
+    //             slider.countSlider();
+    //         }, 2000);
+    //     }
+    // )
     slider.start();
+    $('#sliderClick').click(function () {
+        slider.currentNClick = slider.currentNClick + 1;
+        if (slider.currentNClick > 4) {
+            slider.currentNClick = 0;
+        }
+        slider.nextClick(slider.currentNClick);
+    });
 
 
 });
